@@ -1,0 +1,9 @@
+<img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!posts">
+
+<div class="posts" *ngIf="posts">
+  <div class="posts-item" *ngFor="let post of posts">
+    <h1 class="posts-item__title">{{ post.title }}</h1>
+    <p class="posts-item__body">{{ post.body }}</p>
+    <a class="posts-item__comments" [routerLink]="[post.id, 'comments']">Read Comments</a>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<button class="back" (click)="goBack()">Back</button>
+
+<img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!photos">
+
+<div class="photos" *ngIf="photos" >
+  <img class="photos__img" src="{{ photo.thumbnailUrl }}" *ngFor="let photo of photos" alt="">
+</div>

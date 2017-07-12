@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+
+import { Http } from '@angular/http'
+
+@Injectable()
+export class PostsService {
+
+  constructor( private _http: Http ) { }
+
+  getPosts(id){
+    return this._http.get('https://jsonplaceholder.typicode.com/posts?userId=' + id);
+  };
+
+  getComments(id){
+    return this._http.get('https://jsonplaceholder.typicode.com/comments?postId=' + id);
+  };
+
+};

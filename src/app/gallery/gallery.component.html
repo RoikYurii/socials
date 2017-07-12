@@ -1,0 +1,8 @@
+<img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!albums">
+<div class="photos" *ngIf="albums">
+  <a *ngFor="let album of albums" [routerLink]="[album.id, 'photos']">
+    <div class="photos-item">
+      <p class="photos__title">{{ album.title }}</p>
+    </div>
+  </a>
+</div>

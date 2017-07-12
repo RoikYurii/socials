@@ -1,0 +1,19 @@
+<div class="user-content" *ngIf="user">
+    <div class="user-content-info">
+      <h3 class="user-content-info__username">
+        <span>Hi,</span>
+        {{ user.username }}
+      </h3>
+      <h1 class="user-content-info__name">{{ user.name }}</h1>
+      <h3 class="user-content-info__email">{{ user.email }}</h3>
+    </div>
+    <div class="user-content-buttons">
+      <a href="">
+      <button class="user-content-buttons__new-post">Add post</button>
+    </a>
+    <a href="">
+      <button class="user-content-buttons__new-photo">Add photo</button>
+    </a>
+    </div>
+  <a class="main-link" routerLink="/">Main</a>
+</div>

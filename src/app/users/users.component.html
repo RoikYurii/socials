@@ -1,0 +1,16 @@
+<img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!users">
+
+<div class="users" *ngIf="users">
+  <div class="users-item" *ngFor="let user of users">
+    <h3 class="users-item__name">{{ user.name }}</h3>
+    <p class="users-item__email">{{ user.email }}</p>
+    <a routerLink="/{{user.id}}/posts">
+      <button class="users-item__posts">Posts</button>
+    </a >
+    <a routerLink="/{{user.id}}/albums">
+      <button class="users-item__gallery">Gallery</button>
+    </a>
+      <button class="users-item__add-post" *ngIf="userId === user.id">Add Post</button>
+      <button class="users-item__add-photo" *ngIf="userId === user.id">Add Photo</button>
+  </div>
+</div>
