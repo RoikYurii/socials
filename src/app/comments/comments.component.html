@@ -3,9 +3,9 @@
 <img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!comments">
 
 <div class="comments" *ngIf="comments">
-  <div class="comments-item" *ngFor="let comment of comments">
-    <h3 class="comments-item__email">{{ comment.email }}</h3>
-    <p class="comments-item__name">{{ comment.name }}</p>
-    <p class="comments-item__text">{{ comment.body }}</p>
+  <div class="comments_item" *ngFor="let comment of comments">
+    <h3 class="comments_item__email">{{ comment.email }}</h3>
+    <p class="comments_item__name">{{ comment.name }}</p>
+    <p class="comments_item__text">{{ comment.body }}</p>
   </div>
 </div>

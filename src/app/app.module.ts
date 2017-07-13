@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 import { UsersService } from "./_services/users.service";
 import { PostsService } from "./_services/posts.service";
@@ -15,6 +16,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CommentsComponent } from './comments/comments.component';
 import { PhotosComponent } from './photos/photos.component';
 import { IndexComponent } from './index/index.component';
+import { ReversePipe } from './_pipes/reverse.pipe';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { IndexComponent } from './index/index.component';
     ProfileComponent,
     CommentsComponent,
     PhotosComponent,
-    IndexComponent
+    IndexComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot([
       {
         path: '',

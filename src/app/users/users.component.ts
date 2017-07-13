@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UsersService } from "../_services/users.service"
-import { authUserId } from '../shared/auth-user'
 
 @Component({
   selector: 'users',
@@ -11,8 +10,7 @@ import { authUserId } from '../shared/auth-user'
 export class UsersComponent implements OnInit {
 
   users;
-  userId = authUserId;
-  
+
   constructor( private _usersService: UsersService ) { }
 
   ngOnInit() {

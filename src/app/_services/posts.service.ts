@@ -15,4 +15,8 @@ export class PostsService {
     return this._http.get('https://jsonplaceholder.typicode.com/comments?postId=' + id);
   };
 
+  addPost( post ){
+    return this._http.post('https://jsonplaceholder.typicode.com/posts', post)
+  }
+
 };

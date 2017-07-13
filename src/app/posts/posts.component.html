@@ -1,9 +1,21 @@
 <img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!posts">
 
 <div class="posts" *ngIf="posts">
-  <div class="posts-item" *ngFor="let post of posts">
-    <h1 class="posts-item__title">{{ post.title }}</h1>
-    <p class="posts-item__body">{{ post.body }}</p>
-    <a class="posts-item__comments" [routerLink]="[post.id, 'comments']">Read Comments</a>
+
+  <div class="posts_form_nav">
+    <button *ngIf="userId === authUserId" class="posts_form_nav__open" (click)="showForm()">Add New Post</button>
+    <div class="posts_form_nav__close" (click)="hideForm()" [ngClass]="{ posts_form_nav__close_active: formNavIsActive }"></div>
+  </div>
+
+  <form class="posts_form" [ngClass]="{ posts_form_active: formIsActive }" *ngIf="userId === authUserId" (ngSubmit)="addPost(); postForm.reset()" #postForm="ngForm">
+    <input class="posts_form__title" type="text" name="form_title" [(ngModel)]="formTitle" placeholder="Enter title" required>
+    <textarea class="posts_form__body" type="text" name="form_body" [(ngModel)]="formBody" placeholder="Enter body text" required></textarea>
+    <button class="posts_form__btn" type="submit" [disabled]="postForm.form.invalid">Add</button>
+  </form>
+
+  <div class="posts_item" *ngFor="let post of posts | reverse">
+    <h1 class="posts_item__title">{{ post.title }}</h1>
+    <p class="posts_item__body">{{ post.body }}</p>
+    <a class="posts_item__comments" [routerLink]="[post.id, 'comments']">Read Comments</a>
   </div>
 </div>

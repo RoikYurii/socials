@@ -1,6 +1,6 @@
 .posts
   padding: 10px
-  &-item
+  &_item
     padding: 30px 20px 20px 20px
     background-color: #b0b0b0
     margin-bottom: 15px
@@ -33,8 +33,103 @@
       background-color: #1b1918
       line-height: 0.9
       width: 120px
-
       align-self: flex-end
       &:hover
+        background: #676767
+        transition: .3s
+
+  &_form
+    width: 80%
+    display: flex
+    flex-flow: column
+    background: #b0b0b0
+    align-items: center
+    transition: all .3s
+    margin-bottom: 15px
+    justify-content: space-around
+    height: 0
+    overflow: hidden
+    box-sizing: border-box
+    border: 1px solid #1b1918
+    &__title
+      width: 80%
+      color: #242424
+      font-size: 18px
+      box-sizing: border-box
+      padding: 2px
+    &__body
+      width: 80%
+      color: #242424
+      font-size: 18px
+      resize: none
+      padding: 5px
+      height: 120px
+      box-sizing: border-box
+    &__btn
+      width: 120px
+      height: 40px
+      background-color: #383838
+      color: #f1f1f1
+      font-size: 20px
+      border: none
+      border-radius: 5px
+      cursor: pointer
+      text-transform: uppercase
+      &:hover
+        background-color: #242424
+
+    &_nav
+      width: 80%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      &__open
+        width: 155px
+        height: 45px
+        background: #383838
+        border: none
         border-radius: 5px
-        transition: all .3s
+        font-size: 16px
+        color: #f1f1f1
+        cursor: pointer
+        transition: .8s
+        text-transform: uppercase
+        font-weight: 500
+        margin-bottom: 15px
+        &:hover
+          background: #242424
+      &__close
+        width: 30px
+        height: 30px
+        background: url('../../assets/img/close.png') no-repeat
+        background-size: cover
+        opacity: 0
+        transition: all .8s
+        cursor: pointer
+        animation: rotating_back .8s
+        &_active
+          animation: rotating .8s
+          opacity: 1
+
+    &_active
+      overflow: visible
+      height: 250px
+      transition: .3
+
+button:disabled
+  cursor: not-allowed
+  background-color: #bfbfbf
+  &:hover
+    background-color: #bfbfbf
+
+@keyframes rotating
+  from
+    transform: rotateZ(0deg)
+  to
+    transform: rotateZ(180deg)
+
+@keyframes rotating_back
+  from
+    transform: rotateZ(0deg)
+  to
+    transform: rotateZ(-180deg)
