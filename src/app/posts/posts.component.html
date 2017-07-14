@@ -2,8 +2,8 @@
 
 <div class="posts" *ngIf="posts">
 
-  <div class="posts_form_nav">
-    <button *ngIf="userId === authUserId" class="posts_form_nav__open" (click)="showForm()">Add New Post</button>
+  <div *ngIf="userId === authUserId" class="posts_form_nav">
+    <button class="posts_form_nav__open" (click)="showForm()">Add New Post</button>
     <div class="posts_form_nav__close" (click)="hideForm()" [ngClass]="{ posts_form_nav__close_active: formNavIsActive }"></div>
   </div>
 
@@ -13,9 +13,10 @@
     <button class="posts_form__btn" type="submit" [disabled]="postForm.form.invalid">Add</button>
   </form>
 
-  <div class="posts_item" *ngFor="let post of posts | reverse">
+  <div class="posts_item" *ngFor="let post of posts | reverse; let id = index">
     <h1 class="posts_item__title">{{ post.title }}</h1>
     <p class="posts_item__body">{{ post.body }}</p>
     <a class="posts_item__comments" [routerLink]="[post.id, 'comments']">Read Comments</a>
+    <div *ngIf="userId === authUserId" class="posts_item__del" (click)="deleteItem(posts, id)"></div>
   </div>
 </div>

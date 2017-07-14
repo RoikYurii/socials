@@ -2,10 +2,25 @@
 
 <img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!comments">
 
+
+
 <div class="comments" *ngIf="comments">
-  <div class="comments_item" *ngFor="let comment of comments">
+
+  <div class="comments_form_nav">
+    <button class="comments_form_nav__open" (click)="showForm()">Add New Comment</button>
+    <div class="comments_form_nav__close" (click)="hideForm()" [ngClass]="{ comments_form_nav__close_active: formNavIsActive }"></div>
+  </div>
+
+  <form class="comments_form" [ngClass]="{ comments_form_active: formIsActive }" (ngSubmit)="addComment(); commentForm.reset()" #commentForm="ngForm">
+    <input class="comments_form__title" type="text" name="form_name" [(ngModel)]="formName" placeholder="Enter name" required>
+    <textarea class="comments_form__body" type="text" name="form_body" [(ngModel)]="formBody" placeholder="Enter text" required></textarea>
+    <button class="comments_form__btn" type="submit" [disabled]="commentForm.form.invalid">Add</button>
+  </form>
+
+  <div class="comments_item" *ngFor="let comment of comments | reverse; let id = index">
     <h3 class="comments_item__email">{{ comment.email }}</h3>
     <p class="comments_item__name">{{ comment.name }}</p>
     <p class="comments_item__text">{{ comment.body }}</p>
+    <div *ngIf="userId === authUserId" class="comments_item__del" (click)="deleteItem(comments, id)"></div>
   </div>
 </div>

@@ -19,4 +19,12 @@ export class PostsService {
     return this._http.post('https://jsonplaceholder.typicode.com/posts', post)
   }
 
+  addComment( comment ){
+    return this._http.post('https://jsonplaceholder.typicode.com/comments', comment)
+  }
+
+  deleteItem (posts, postId) {
+    return posts.splice( postId, 1 );
+  }
+
 };

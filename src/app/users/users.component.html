@@ -1,14 +1,17 @@
 <img class="loader" src="../../assets/img/loader.gif" alt="" *ngIf="!users">
 
-<div class="users" *ngIf="users">
-  <div class="users-item" *ngFor="let user of users">
-    <h3 class="users-item__name">{{ user.name }}</h3>
-    <p class="users-item__email">{{ user.email }}</p>
-    <a routerLink="/{{user.id}}/posts">
-      <button class="users-item__posts">Posts</button>
-    </a >
-    <a routerLink="/{{user.id}}/albums">
-      <button class="users-item__gallery">Gallery</button>
-    </a>
+<div class="users_container">
+  <div class="users" *ngIf="users" [ngClass]="{ users_active: userNav }">
+    <div class="users-item" *ngFor="let user of users">
+      <h3 class="users-item__name">{{ user.name }}</h3>
+      <p class="users-item__email">{{ user.email }}</p>
+      <a routerLink="/{{user.id}}/posts">
+        <button class="users-item__posts">Posts</button>
+      </a >
+      <a routerLink="/{{user.id}}/albums">
+        <button class="users-item__gallery">Gallery</button>
+      </a>
+    </div>
   </div>
+  <div class="users_nav" [ngClass]="{ users_nav_active: userNav }" (click)="toggleNav()"></div>
 </div>

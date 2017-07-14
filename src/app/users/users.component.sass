@@ -11,10 +11,25 @@
   &:hover
     background-color: #d7d7d7
     color: #888888
+
+
 .users
   background: #1b1918
   width: 250px
   padding: 20px 0 10px 15px
+  transition: all .3s
+  position: relative
+  &_container
+    display: flex
+    background: #f4f4f4
+  &_nav
+    display: none
+    width: 35px
+    height: 35px
+    background: url('../../assets/img/user-nav.png') no-repeat
+    background-size: cover
+    margin: 10px 0 0 10px
+    cursor: pointer
   &-item
     color: #f1f1f1
     margin-bottom: 30px
@@ -41,3 +56,36 @@
       margin-right: 10px
     &__add-photo
       @extend %btn
+
+
+
+@media only screen and (max-width: 950px)
+  .users
+    overflow-x: hidden
+    width: 0
+    transition: .3s
+    padding: 0
+    &_active
+      width: 250px
+      padding: 20px 0 10px 15px
+    &_nav
+      display: block
+      z-index: 1000
+      animation: rotating_back .5s
+      &_active
+        transform: rotateZ(180deg)
+        animation: rotating .5s
+
+
+
+@keyframes rotating
+  from
+    transform: rotateZ(0deg)
+  to
+    transform: rotateZ(180deg)
+
+@keyframes rotating_back
+  from
+    transform: rotateZ(180deg)
+  to
+    transform: rotateZ(0deg)

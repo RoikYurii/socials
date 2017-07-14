@@ -14,6 +14,7 @@ import { authUserId } from '../shared/auth-user'
 export class PostsComponent implements OnInit {
 
   posts;
+
   authUserId = authUserId;
   userId;
 
@@ -22,6 +23,7 @@ export class PostsComponent implements OnInit {
 
   formTitle = "";
   formBody = "";
+
 
   constructor( private _postsService: PostsService,
                private _activatedRoute: ActivatedRoute) {}
@@ -53,7 +55,11 @@ export class PostsComponent implements OnInit {
     this._postsService.addPost( post )
       .subscribe( res => {
         this.posts.push( res.json() );
-      } )
+      })
+  }
+
+  deleteItem(array, Id){
+    this._postsService.deleteItem( array, Id );
   }
 
   showForm() {

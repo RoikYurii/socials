@@ -25,3 +25,106 @@
       text-transform: uppercase
     &__text
       margin: 0
+    &__del
+      width: 20px
+      height: 20px
+      background: url('../../assets/img/close.png') no-repeat
+      background-size: cover
+      cursor: pointer
+      position: absolute
+      right: 10px
+      top: 30px
+
+  &_form
+    width: 80%
+    display: flex
+    flex-flow: column
+    background: #b0b0b0
+    align-items: center
+    transition: all .3s
+    margin-bottom: 15px
+    justify-content: space-around
+    height: 0
+    overflow: hidden
+    box-sizing: border-box
+    border: 1px solid #1b1918
+    &__title
+      width: 80%
+      color: #242424
+      font-size: 18px
+      box-sizing: border-box
+      padding: 2px
+    &__body
+      width: 80%
+      color: #242424
+      font-size: 18px
+      resize: none
+      padding: 5px
+      height: 120px
+      box-sizing: border-box
+    &__btn
+      width: 120px
+      height: 40px
+      background-color: #383838
+      color: #f1f1f1
+      font-size: 20px
+      border: none
+      border-radius: 5px
+      cursor: pointer
+      text-transform: uppercase
+      &:hover
+        background-color: #242424
+    &_nav
+      width: 80%
+      display: flex
+      justify-content: space-between
+      align-items: center
+      &__open
+        width: 155px
+        height: 45px
+        background: #383838
+        border: none
+        border-radius: 5px
+        font-size: 14px
+        color: #f1f1f1
+        cursor: pointer
+        transition: .8s
+        text-transform: uppercase
+        font-weight: 500
+        margin-bottom: 15px
+        &:hover
+          background: #242424
+      &__close
+        width: 30px
+        height: 30px
+        background: url('../../assets/img/close.png') no-repeat
+        background-size: cover
+        opacity: 0
+        transition: all .8s
+        animation: rotating_back .8s
+        &_active
+          animation: rotating .8s
+          opacity: 1
+          cursor: pointer
+    &_active
+      overflow: visible
+      height: 250px
+      transition: .3
+
+button:disabled
+  cursor: not-allowed
+  background-color: #bfbfbf
+  &:hover
+    background-color: #bfbfbf
+
+@keyframes rotating
+  from
+    transform: rotateZ(0deg)
+  to
+    transform: rotateZ(180deg)
+
+@keyframes rotating_back
+  from
+    transform: rotateZ(0deg)
+  to
+    transform: rotateZ(-180deg)

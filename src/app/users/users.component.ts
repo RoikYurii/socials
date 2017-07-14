@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
 
   users;
 
+  userNav = false;
+
   constructor( private _usersService: UsersService ) { }
 
   ngOnInit() {
@@ -25,6 +27,8 @@ export class UsersComponent implements OnInit {
       } )
   }
 
-
+  toggleNav() {
+    this.userNav = !this.userNav
+  }
 
 }
